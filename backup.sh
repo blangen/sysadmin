@@ -6,6 +6,7 @@ output=/data/backups/output-$date
 echo ''
 echo "INFO: Backing up ${DIR}" >> $output
 echo ''
+echo ''
 hostname=`uname -n`
 
 if mountpoint -q ${mountpoint}/
