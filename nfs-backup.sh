@@ -39,13 +39,13 @@ if ! mountpoint -q ${mountpoint}/; then
 	exit 1
 fi
 
-admin=/$mountpoint/admin
- if [ -d ${admin} ]
+app=/$mountpoint/app
+ if [ -d ${app} ]
         then
-          echo $admin" exists" >> $output
+          echo $app" exists" >> $output
         else
-          echo $admin" does not exist.. creating this for backing up Admin tools" >> $output
-          mkdir $admin
+          echo $app" does not exist.. creating this for backing up Admin tools" >> $output
+          mkdir $app
   fi
 
-       /usr/bin/rsync -rlptDz $1 $mountpoint/admin/$hostname
+       /usr/bin/rsync -rlptDz $1 $mountpoint/app/$hostname
