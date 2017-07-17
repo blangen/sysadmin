@@ -6,7 +6,6 @@ output=/data/backups/output-$date
 echo ''
 echo "INFO: Backing up ${DIR}" >> $output
 echo ''
-echo ''
 hostname=`uname -n`
 
 if mountpoint -q ${mountpoint}/
@@ -33,7 +32,7 @@ full_backup=/opt/full_backup
 #else echo "${mountpoint} is already mounted."
 fi
 
-# Target volume **must** be mounted by this point. If not, die screaming.
+# Target volume **must** be mounted by this point. If not, die screaming!
 if ! mountpoint -q ${mountpoint}/; then
 	echo "Mounting failed! Cannot run backup without backup volume!" >> $output
 	exit 1
