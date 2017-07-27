@@ -1,51 +1,51 @@
 #!/bin/bash
 
 mountpoint="$1"
-date "+%Y%m%d-%H%M%S"
-output=/data/backups/output-$date
+now=$(date "+%Y%m%d-%H%M%S")
+output=/data/backups/output-"$now"
 echo ''
-echo "INFO: Backing up ${DIR}" >> $output
+echo "INFO: Backing up ${DIR}" >> "$output"
 echo ''
 echo ''
-hostname=`uname -n`
+hostname=$(uname -n)
 
-if mountpoint -q ${mountpoint}/
+if mountpoint -q "${mountpoint}"/
   then
-       echo "Filesystem mounted - running backups" >> $output
+       echo "Filesystem mounted - running backups" >> "$output"
   else
-       echo "filesystem not mounted - attempting to mount." >> $output
+       echo "filesystem not mounted - attempting to mount." >> "$output"
 full_backup=/opt/full_backup
- if [ -d ${full_backup} ]
+ if [ -d "${full_backup}" ]
         then
-          echo $full_backup" exists" >> $output
+          echo $full_backup" exists" >> "$output"
         else
-          echo $full_backup" does not exist.. creating this for backing up Admin tools" >> $output
-          mkdir $full_backup
+          echo $full_backup" does not exist.. creating this for backing up Admin tools" >> "$output"
+          mkdir "$full_backup"
  fi 
 
-       /bin/mount <NFS Server>:</vol/partition> $mountpoint
-       if ! mountpoint -q ${mountpoint}/
+       /bin/mount <NFS Server>:</vol/partition> "$mountpoint"
+       if ! mountpoint -q "${mountpoint}"/
          then
-	        echo "An error code was returned by mount command!" >> $output
+	        echo "An error code was returned by mount command!" >> "$output"
 		exit 5
-	else echo "Mounted successfully." >> $output
+	else echo "Mounted successfully." >> "$output"
 	fi
 #else echo "${mountpoint} is already mounted."
 fi
 
 # Target volume **must** be mounted by this point. If not, die screaming.
-if ! mountpoint -q ${mountpoint}/; then
-	echo "Mounting failed! Cannot run backup without backup volume!" >> $output
+if ! mountpoint -q "${mountpoint}"/; then
+	echo "Mounting failed! Cannot run backup without backup volume!" >> "$output"
 	exit 1
 fi
 
 app=/$mountpoint/app
- if [ -d ${app} ]
+ if [ -d "${app}" ]
         then
-          echo $app" exists" >> $output
+          echo "$app"" exists" >> "$output"
         else
-          echo $app" does not exist.. creating this for backing up Admin tools" >> $output
-          mkdir $app
+          echo "$app"" does not exist.. creating this for backing up Admin tools" >> "$output"
+          mkdir "$app"
   fi
 
-       /usr/bin/rsync -rlptDz $1 $mountpoint/app/$hostname
+       /usr/bin/rsync -rlptDz "$1" "$mountpoint"/app/"$hostname"
