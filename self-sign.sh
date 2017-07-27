@@ -2,6 +2,7 @@
 
 # Creates a self-signed SSL certificate and key file
 #   Optionally creates a certificate chain and uploads to Amazon via 'aws iam'
+#   You should change values in this script to match your organization 
  
 
 if hash cowsay 2>/dev/null; then
