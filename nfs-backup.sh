@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# suggested crontab entry:
+# */15 * * * * /bin/nice -n 19 /usr/bin/ionice -c2 -n7 ~/nfs-backup.sh 2>&1 | /usr/bin/logger -i -t nfs-backup.sh
+
 mountpoint="$1"
 now=$(date "+%Y%m%d-%H%M%S")
 output=/data/backups/output-"$now"
