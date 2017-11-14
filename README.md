@@ -1,2 +1,2 @@
 # sysadmin
-System Administration scripts.
+System Administration scripts
