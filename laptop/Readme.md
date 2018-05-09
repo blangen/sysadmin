@@ -29,7 +29,7 @@ and once it appears, press `return` to launch it.
 In your Terminal window, copy and paste the command below, then press `return`.
 
 ```sh
-bash <(curl https://raw.githubusercontent.com/blangen/sysadmin/741deca6/laptop/inst_newlaptop.sh -o inst_newlaptop.sh)
+bash <(curl -s https://cdn.rawgit.com/blangen/sysadmin/cfa5576f/laptop/inst_newlaptop.sh)
 ```
 
 The [script](https://github.com/blangen/sysadmin/blob/master/laptop/mac) itself is
