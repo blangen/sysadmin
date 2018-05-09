@@ -1,6 +1,6 @@
 New Laptop
 ======
-inst_laptop.sh is a script to set up an OS X computer for web development.
+inst_newlaptop.sh is a script to set up an OS X computer for web development.
 
 This script can be ran multiple times on the same machine safely, as it will
 install, update, or skip packages with idempotence.
