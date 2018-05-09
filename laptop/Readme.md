@@ -41,11 +41,16 @@ points. This is the same password that you use to log in to your Mac.
 
 **Once the script is done, quit and relaunch Terminal.**
 
+If there are no errors, then sit back and marvel at the magic!
+
+![Alt Text](https://cdn-images-1.medium.com/max/1600/1*mPUc2fU1VPbW6gjbw1DjeQ.gif)
+
 Debugging
 ---------
 
 Your last Laptop run will be saved to a file called `new_laptop.log` in your home
-folder. Read through it to see if you can debug the issue yourself.
+folder. Read through it to see if you can debug the issue yourself. Send me email if
+you have any questions or suggestions.
 
 What it sets up
 ---------------
