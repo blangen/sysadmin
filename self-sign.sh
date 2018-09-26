@@ -153,7 +153,7 @@ make-chain () {
 upload-server-certificate() {
 # Using the IAM API, upload the cert body file, chain file, and private key file in a single command
 
-	aws iam upload-server-certificate --server-certificate-name star.vod309.com \
+	aws iam upload-server-certificate --server-certificate-name star.xxxxxxx.com \
 					    --certificate-body file://$wdir/root-ca/certs/ca.crt \
 					    --private-key file://$wdir/root-ca/private/ca.key
 #					    --certificate-chain file://$wdir/chains/ca-all.crt \
